@@ -12,3 +12,5 @@ To run the code create an `local.settings.json` adding your TeamsChannelUri to p
   }
 }
 ```
+
+Once setup use `func start` to run the function and post the adaptive card to the Teams channel.

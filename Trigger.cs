@@ -10,18 +10,18 @@ using Azure.Core;
 using Azure.Monitor.Query;
 using Azure.Monitor.Query.Models;
 
-namespace AzureMessageStatsToTeams
+namespace AzureMetricsToTeams
 {
-    public class MessageTrigger
+    public class Trigger
     {
         private readonly ILogger _logger;
         public readonly IConfiguration _configuration;
 
         public DateTimeOffset TimeStamp { get; private set; }
 
-        public MessageTrigger(ILoggerFactory loggerFactory, IConfiguration configuration)
+        public Trigger(ILoggerFactory loggerFactory, IConfiguration configuration)
         {
-            _logger = loggerFactory.CreateLogger<MessageTrigger>();
+            _logger = loggerFactory.CreateLogger<Trigger>();
             _configuration = configuration;
         }
         
@@ -33,7 +33,7 @@ namespace AzureMessageStatsToTeams
 
             //Load Template from Embedded Resource
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "AzureMessageStatsToTeams.adaptiveCardTemplate.json";
+            var resourceName = "AzureMetricsToTeams.adaptiveCardTemplate.json";
 
             using var stream = assembly.GetManifestResourceStream(resourceName);
             if (stream is null)

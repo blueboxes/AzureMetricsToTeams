@@ -1,0 +1,108 @@
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.5",
+  "msTeams": {
+      "width": "full"
+  },
+  "body": [
+      {
+          "type": "TextBlock",
+          "text": "${Title}",
+          "wrap": true,
+          "style": "heading",
+          "size": "Large",
+          "color": "Attention"
+      },
+      {
+          "type": "TextBlock",
+          "text": "${Message}",
+          "wrap": true
+      },
+      {
+          "type": "Table",
+          "gridStyle": "default",
+          "columns": [
+              {
+                  "width": 3
+              },
+              {
+                  "width": 1
+              },
+              {
+                  "width": 1
+              },
+              {
+                  "width": 1
+              },
+              {
+                  "width": 1
+              }
+          ],
+          "rows": [
+              {
+                  "type": "TableRow",
+                  "cells": [
+                      {
+                          "type": "TableCell",
+                          "items": [
+                              {
+                                  "type": "TextBlock",
+                                  "text": "TimeStamp",
+                                  "weight": "Bolder"
+                              }
+                          ]
+                      },
+                      {
+                          "type": "TableCell",
+                          "items": [
+                              {
+                                  "type": "TextBlock",
+                                  "text": "CPU %",
+                                  "weight": "Bolder"
+                              }
+                          ]
+                      }         
+                  ],
+                  "style": "emphasis"
+              },
+              {
+                  "type": "TableRow",
+                  "cells": [
+                      {
+                          "type": "TableCell",
+                          "items": [
+                              {
+                                  "type": "TextBlock",
+                                  "text": "${TimeStamp}"
+                              }
+                          ]
+                      },
+                      {
+                          "type": "TableCell",
+                          "items": [
+                              {
+                                  "type": "TextBlock",
+                                  "text": "${string(Value)}"
+                              }
+                          ]
+                      }
+                  ],
+                  "spacing": "None",
+                  "$data": "${Data}"
+              }
+          ],
+          "height": "stretch"
+      },
+      {
+          "type": "ActionSet",
+          "actions": [
+              {
+                  "type": "Action.OpenUrl",
+                  "title": "View Portal",
+                  "url": "https://portal.azure.com/"
+              }
+          ]
+      }
+  ]
+}
